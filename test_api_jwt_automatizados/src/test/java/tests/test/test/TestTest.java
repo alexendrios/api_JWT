@@ -1,13 +1,14 @@
-package tests.test_api.test;
+package tests.test.test;
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.http.HttpStatus;
+import org.hamcrest.CoreMatchers;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import tests.test_api.request.TestRequest;
+import tests.test.request.TestRequest;
 import static org.hamcrest.Matchers.containsString;
 
 @Slf4j
@@ -28,6 +29,7 @@ public class TestTest {
                 .then()
                 .statusCode(HttpStatus.SC_OK)
                 .log().all()
+                .assertThat()
                 .body("message", containsString("API JWT no AR"));
     }
 
@@ -40,6 +42,7 @@ public class TestTest {
                 .then()
                 .statusCode(HttpStatus.SC_NOT_FOUND)
                 .log().all()
+                .assertThat()
                 .body("error", containsString("Not Found"));
     }
 }

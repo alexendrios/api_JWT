@@ -1,4 +1,4 @@
-package tests.test_api.request;
+package tests.test.request;
 
 import io.qameta.allure.Step;
 import io.restassured.http.ContentType;
