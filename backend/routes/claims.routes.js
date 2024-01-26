@@ -1,4 +1,4 @@
-const { validatePayload } = require("../src/validation");
+const { validatePayload } = require("../src/services/validation");
 
 const get_post = (request, h) => {
   const payload = request.payload;

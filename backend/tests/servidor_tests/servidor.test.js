@@ -1,4 +1,4 @@
-const serverModule = require("../app/lib/server");
+const serverModule = require("../../app/lib/server");
 const Hapi = require("@hapi/hapi");
 
 describe("Server", () => {

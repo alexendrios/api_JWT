@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1706288116273" clover="3.2.0">
-  <project timestamp="1706288116273" name="All files">
-    <metrics statements="47" coveredstatements="47" conditionals="18" coveredconditionals="18" methods="8" coveredmethods="8" elements="73" coveredelements="73" complexity="0" loc="47" ncloc="47" packages="3" files="4" classes="4"/>
+<coverage generated="1706303031702" clover="3.2.0">
+  <project timestamp="1706303031702" name="All files">
+    <metrics statements="62" coveredstatements="62" conditionals="22" coveredconditionals="22" methods="9" coveredmethods="9" elements="93" coveredelements="93" complexity="0" loc="62" ncloc="62" packages="4" files="5" classes="5"/>
     <package name="app.lib">
       <metrics statements="16" coveredstatements="16" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
       <file name="server.js" path="C:\projeto\api_JWT\backend\app\lib\server.js">
@@ -13,15 +13,15 @@
         <line num="10" count="2" type="stmt"/>
         <line num="11" count="2" type="stmt"/>
         <line num="15" count="1" type="stmt"/>
-        <line num="17" count="1" type="stmt"/>
-        <line num="21" count="2" type="stmt"/>
-        <line num="23" count="2" type="stmt"/>
-        <line num="25" count="2" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="20" count="2" type="stmt"/>
+        <line num="22" count="2" type="stmt"/>
+        <line num="24" count="2" type="stmt"/>
+        <line num="26" count="7" type="stmt"/>
         <line num="27" count="7" type="stmt"/>
-        <line num="28" count="7" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
         <line num="31" count="1" type="stmt"/>
         <line num="32" count="1" type="stmt"/>
-        <line num="33" count="1" type="stmt"/>
       </file>
     </package>
     <package name="routes">
@@ -44,9 +44,30 @@
         <line num="25" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="src">
+    <package name="src.Payload">
+      <metrics statements="15" coveredstatements="15" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
+      <file name="read_payload.js" path="C:\projeto\api_JWT\backend\src\Payload\read_payload.js">
+        <metrics statements="15" coveredstatements="15" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="5" count="13" type="stmt"/>
+        <line num="6" count="13" type="stmt"/>
+        <line num="8" count="13" type="stmt"/>
+        <line num="9" count="13" type="stmt"/>
+        <line num="10" count="11" type="stmt"/>
+        <line num="12" count="10" type="stmt"/>
+        <line num="14" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="16" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="21" count="3" type="stmt"/>
+        <line num="25" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.services">
       <metrics statements="20" coveredstatements="20" conditionals="16" coveredconditionals="16" methods="2" coveredmethods="2"/>
-      <file name="validation.js" path="C:\projeto\api_JWT\backend\src\validation.js">
+      <file name="validation.js" path="C:\projeto\api_JWT\backend\src\services\validation.js">
         <metrics statements="20" coveredstatements="20" conditionals="16" coveredconditionals="16" methods="2" coveredmethods="2"/>
         <line num="1" count="2" type="stmt"/>
         <line num="2" count="6" type="stmt"/>
@@ -66,7 +87,7 @@
         <line num="38" count="5" type="stmt"/>
         <line num="42" count="2" type="stmt"/>
         <line num="43" count="3" type="stmt"/>
-        <line num="44" count="80179" type="cond" truecount="2" falsecount="0"/>
+        <line num="44" count="15679" type="cond" truecount="2" falsecount="0"/>
         <line num="46" count="2" type="stmt"/>
       </file>
     </package>
