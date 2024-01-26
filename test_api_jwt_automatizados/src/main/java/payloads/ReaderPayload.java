@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public class ReaderPayload {
 
-    public static String readerJson(String pathFile){
+    public static String readerJson(String pathFile) {
         try (BufferedReader reader = new BufferedReader(new FileReader(pathFile))) {
             StringBuilder stringBuilder = new StringBuilder();
             String line;
@@ -15,7 +15,6 @@ public class ReaderPayload {
             }
             return stringBuilder.toString();
         } catch (IOException e) {
-            e.printStackTrace();
             return null;
         }
     }
