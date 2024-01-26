@@ -1,6 +1,5 @@
 package runner;
 
-import org.junit.Before;
 import org.junit.platform.runner.JUnitPlatform;
 import org.junit.platform.suite.api.IncludeTags;
 import org.junit.platform.suite.api.SelectPackages;

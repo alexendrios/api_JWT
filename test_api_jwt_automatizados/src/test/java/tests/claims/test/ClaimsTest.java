@@ -77,7 +77,7 @@ public class ClaimsTest {
     @DisplayName("TC07 - Cadastro de um Claim - A Key Role sem valor - POST.")
     @Description("Deve realizar o cadastro de um Claim - A Key Role sem valor - POST.")
     public void deveRealizarOCadastroDeUmClaimAkeyRoleSemValor() {
-        new ClaimsRequest().cadastroClaim(uri+jwtValido,getClaimRoleSemValor())
+         new ClaimsRequest().cadastroClaim(uri+jwtValido,getClaimRoleSemValor())
                 .then()
                 .log().all()
                 .statusCode(HttpStatus.SC_BAD_REQUEST)
