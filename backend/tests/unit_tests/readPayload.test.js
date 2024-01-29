@@ -1,5 +1,5 @@
 // readPayload.test.js
-const read = require("../../src/Payload/read_payload");
+const read = require("../../app/src/Payload/read_payload");
 const fs = require("fs");
 
 let resultado;

@@ -54,6 +54,6 @@ public class TestTest {
                 .statusCode(HttpStatus.SC_NOT_FOUND)
                 .log().all()
                 .assertThat()
-                .body("error", containsString("Not Found"));
+                .body("message", containsString("Rota não encontrada"));
     }
 }

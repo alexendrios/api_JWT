@@ -1,5 +1,5 @@
-const { validatePayload } = require("../../src/services/validation");
-const read = require('../../src/Payload/read_payload');
+const { validatePayload } = require("../../app/src/services/validation");
+const read = require('../../app/src/Payload/read_payload');
 
 describe("Validação do payload", () => {
   let payload;

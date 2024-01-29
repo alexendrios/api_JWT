@@ -1,5 +1,5 @@
+// server.test.js
 const serverModule = require("../../app/lib/server");
-const Hapi = require("@hapi/hapi");
 
 describe("Server", () => {
   let server;
@@ -27,7 +27,7 @@ describe("Server", () => {
 
   test("deve ter rotas configuradas", async () => {
     const routes = server.table();
-    expect(routes).toHaveLength(5);
+    expect(routes).toHaveLength(6);
   });
 
   test("deve iniciar o servidor", async () => {
@@ -35,23 +35,13 @@ describe("Server", () => {
     expect(typeof startedServer).toBe("object");
   });
 
-  test("deve tratar rejeições não tratadas corretamente", async () => {
-    const errorMessage = "Erro de teste";
-
-    // Substituir console.log por uma função jest mock durante os testes
-    const originalConsoleLog = console.log;
-    console.log = jest.fn();
-
-    // Simular uma rejeição não tratada
-    process.emit("unhandledRejection", errorMessage);
-
-    // Aguardar para garantir que a rejeição seja processada
-    await new Promise((resolve) => setTimeout(resolve, 10));
-
-    // Verificar se console.log foi chamado pelo menos uma vez com a mensagem de erro correta
-    expect(console.log).toHaveBeenCalledWith(errorMessage);
-
-    // Restaurar console.log para a implementação original após os testes
-    console.log = originalConsoleLog;
+  // Adicione testes para cenários específicos do seu servidor
+  test("deve lidar com um erro não tratado corretamente", () => {
+    const mockError = new Error("Erro não tratado");
+    serverModule.handleUnhandledRejection(mockError);
+    expect(handleUnhandledRejectionMock).toHaveBeenCalledWith(mockError);
+    // Certifique-se de verificar outros comportamentos ou logs desejados
   });
+
+  // Adicione mais testes conforme necessário para cenários específicos
 });

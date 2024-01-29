@@ -1,9 +1,9 @@
 const request = require("supertest");
-const { validatePayload } = require("../../src/services/validation");
+const { validatePayload } = require("../../app//src/services/validation");
 const { init } = require("../../app/lib/server");
-const read = require("../../src/Payload/read_payload");
+const read = require("../../app/src/Payload/read_payload");
 
-jest.mock("../../src/services/validation", () => ({
+jest.mock("../../app/src/services/validation", () => ({
   validatePayload: jest.fn(() => null),
 }));
 
@@ -21,13 +21,11 @@ describe("Testes de Integração", () => {
     await server.stop();
   });
 
-  test("Deve retornar 404 se a aplicação está no ar e realizar um GET por uma roat que bão existe", async () => {
+  test("Deve retornar 404 se a aplicação está no ar, então realizar um GET por uma rata que bão existe", async () => {
     const response = await request(server.listener).get("/0");
     expect(response.status).toBe(404);
     expect(response.body).toEqual({
-      statusCode: 404,
-      error: "Not Found",
-      message: "Not Found",
+           message: "Rota não encontrada",
     });
   });
 
@@ -49,7 +47,7 @@ describe("Testes de Integração", () => {
 
     expect(response.status).toBe(201);
     expect(response.body).toEqual({
-      message: "As informações contidas atendem a descrição",
+      message: "As informações contidas atendem à descrição",
     });
   });
 

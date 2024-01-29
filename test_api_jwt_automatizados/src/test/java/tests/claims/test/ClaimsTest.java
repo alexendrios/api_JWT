@@ -36,7 +36,7 @@ public class ClaimsTest {
                 .log().all()
                 .statusCode(HttpStatus.SC_CREATED)
                 .assertThat()
-                .body("message", containsString("As informações contidas atendem a descrição"));
+                .body("message", containsString("As informações contidas atendem à descrição"));
     }
 
     @Test
@@ -117,7 +117,7 @@ public class ClaimsTest {
                 .log().all()
                 .statusCode(HttpStatus.SC_CREATED)
                 .assertThat()
-                .body("message", containsString("As informações contidas atendem a descrição"));
+                .body("message", containsString("As informações contidas atendem à descrição"));
     }
 
     @Test
