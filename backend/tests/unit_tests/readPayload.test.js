@@ -1,4 +1,3 @@
-// readPayload.test.js
 const read = require("../../app/src/Payload/read_payload");
 const fs = require("fs");
 

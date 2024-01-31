@@ -32,8 +32,7 @@ describe("shutdownHandler", () => {
       shutdown: sdkShutdownMock,
     };
 
-    // Espionar console.log
-    const consoleLogSpy = jest.spyOn(console, "log");
+       const consoleLogSpy = jest.spyOn(console, "log");
 
     // Simular a função process.exit
     const mockExit = mockProcessExit();

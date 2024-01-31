@@ -1,5 +1,5 @@
 const request = require("supertest");
-const { validatePayload } = require("../../app//src/services/validation");
+const { validatePayload } = require("../../app/src/services/validation");
 const { init } = require("../../app/lib/server");
 const read = require("../../app/src/Payload/read_payload");
 

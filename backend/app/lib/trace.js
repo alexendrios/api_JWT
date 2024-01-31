@@ -13,7 +13,7 @@ const configureOpenTelemetry = async () => {
   const traceExporter = new ConsoleSpanExporter();
   const sdk = new opentelemetry.NodeSDK({
     metricReader: new PrometheusExporter({
-      port: 9464, // porta padrão 9464
+      port: 9464,
     }),
     resource: new Resource({
       [SemanticResourceAttributes.SERVICE_NAME]: "api-jwt",

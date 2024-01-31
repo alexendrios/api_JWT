@@ -1,4 +1,3 @@
-// server.test.js
 const serverModule = require("../../app/lib/server");
 
 describe("Server", () => {
@@ -35,13 +34,10 @@ describe("Server", () => {
     expect(typeof startedServer).toBe("object");
   });
 
-  // Adicione testes para cenários específicos do seu servidor
   test("deve lidar com um erro não tratado corretamente", () => {
     const mockError = new Error("Erro não tratado");
     serverModule.handleUnhandledRejection(mockError);
     expect(handleUnhandledRejectionMock).toHaveBeenCalledWith(mockError);
-    // Certifique-se de verificar outros comportamentos ou logs desejados
   });
 
-  // Adicione mais testes conforme necessário para cenários específicos
-});
+ });

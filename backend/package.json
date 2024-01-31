@@ -4,8 +4,8 @@
   "description": "api Rest da api-jwt",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon ./app/aplicacao.js",
-    "test": "jest --coverage"
+    "start": "node ./app/aplicacao.js",
+    "test": "jest --coverage=true"
   },
   "jest": {
     "reporters": [

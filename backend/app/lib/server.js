@@ -1,16 +1,24 @@
 const Hapi = require("@hapi/hapi");
 const logger = require("./logger");
 const routes = require("../routes/claims.routes");
-const api = require("../routes/api.on.air");
+const api = require("../routes/api.get");
 const { data } = require("../lib/traceLog");
 const client = require("prom-client");
+const {
+  configureOpenTelemetry,
+  shutdownHandler,
+} = require("./trace"); 
+
+
 
 const collectDefaultMetrics = client.collectDefaultMetrics;
 collectDefaultMetrics({ timeout: 3000 });
+configureOpenTelemetry();
+
 
 const server = Hapi.server({
   port: 4000,
-  host: "localhost",
+  host: "0.0.0.0",
   routes: {
     cors: {
       additionalExposedHeaders: ["x-forwarded-for"],
@@ -23,9 +31,7 @@ server.route(api);
 
 class UnhandledRejectionHandler {
   handle(err) {
-    logger.error(
-  `"Data": ${data()}, "API": ${err}`
-    );
+    logger.error(`"Data": ${data()}, "API": ${err}`);
     process.exit(1);
   }
 }
@@ -79,4 +85,5 @@ module.exports = {
   },
   handleUnhandledRejection: handler.handle,
   logger: customLogger,
+  shutdownHandler, 
 };
