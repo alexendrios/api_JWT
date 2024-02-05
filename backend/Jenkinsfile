@@ -1,57 +1,53 @@
 pipeline {
-    agent {
-        docker {
-            image 'node:14' 
-            args '-u root'  
-        }
-    }
+    agent any
 
     stages {
+        stage('Pull Docker Image') {
+            steps {
+                script {
+                    // Use a imagem oficial do Node.js
+                    docker.image("node").pull()
+                }
+            }
+        }
+
         stage('Checkout') {
             steps {
-                checkout scm
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[url: 'https://github.com/alexendrios/backend-api-jwt.git']]])
             }
         }
 
-        stage('Install dependencies') {
+        stage('Build') {
             steps {
-                sh 'npm install'
+                script {
+                    // Use o Docker para executar os comandos node e npm
+                    docker.image("node").inside {
+                        sh 'node -v'
+                        sh 'npm install'
+                    }
+                }
             }
         }
 
-        stage('Run unit tests') {
+        stage('Run Unit Tests and Generate Code Coverage') {
             steps {
-                sh 'npm test'
+                script {
+                    docker.image("node").inside {
+                        sh 'npm test'
+                    }
+                }
             }
         }
-
-        stage('Generate coverage report') {
+        stage('Deploy') {
             steps {
-                sh 'npm run coverage'
+                script {
+                    docker.image("node").inside {   
+                        sh 'npm start & sleep 3 && pkill -f "npm start"'
+                        echo "Aplicativo pronto para uso"
+                        
+                    }
+                }
             }
-        }
-
-        stage('Start Application') {
-            steps {
-                sh 'npm start &'
-                sleep 10 
-            }
-        }
-
-        stage('Publish test results and coverage') {
-            steps {
-                // Publish Unit test results
-                 unit '**/test-report.html'
-
-                // Publish Cobertura coverage report
-                publishCobertura coberturaReportFile: '**/coverage/lcov-report/index.html'
-            }
-        }
-    }
-
-    post {
-        always {
-            cleanWs() // Clean up workspace and other post-build tasks if needed
         }
     }
 }

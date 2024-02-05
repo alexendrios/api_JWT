@@ -8,23 +8,23 @@ services:
     ports:
       - "4000:4000"
     networks:
-      - minha-rede
+      - apijwt-network
 
   prometheus:
     image: prom/prometheus
     volumes:
-      - ./backend/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./prometheus.yml:/etc/prometheus.yml
     ports:
       - "9090:9090"
     networks:
-      - minha-rede
+      - apijwt-network
 
   grafana:
     image: grafana/grafana
     ports:
       - "3000:3000"
     networks:
-      - minha-rede
+      - apijwt-network
 
 networks:
-  minha-rede:
+  apijwt-network:
